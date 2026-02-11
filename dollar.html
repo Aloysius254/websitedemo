@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KINOTI</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <nav>
+  <a href="index.html">Home</a> |
+  <a href="login.html">Login</a> |
+  <a href="dollar.html">Family </a>
+</nav>
+
+<!-- Overlay text boxes -->
+  <div class="overlay-text left">
+    <h2>Welcome to the Kinoti Family ✨</h2>
+    <p>Faith 🙏, Love ❤️, and Prayer guide our home 🕊️</p>
+  </div>
+
+  <div class="overlay-text right">
+    <h2>Join Our Family Prayers ✝️</h2>
+    <p>Daily devotion strengthens our bond 🌟🌿</p>
+  </div>
+
+  <header>
+    <h1>KINOTI FAMILY</h1>
+  </header>
+
+  <nav>
+    <a href="https://sacredheartchurchnorco.org/daily-family-prayer" target="_blank">
+      Family Prayer
+    </a>
+  </nav>
+
+  <main>
+    <p class="motto">
+      🙏Family that pray together stays together❤️
+    </p>
+
+    <div class="images">
+        <img src="images/parents picture.jpg" alt="Family Image 2" width="200" class="tilt-right">
+      <img src="images/family picture.jpg" alt="Family Image 1" width="400">
+      <img src="images/brothers&sisters.jpg" alt="Family Image 3" width="200" class="tilt-left">
+    </div>
+
+    <p class="prayer">
+       Glory be to the Father 🙏<br>
+      And to the Son ✝️<br>
+      And to the Holy Spirit 🕊️<br>
+      Amen ✨
+    </p>
+
+    <marquee>
+      <p class="marquee-text">Jesus said: I am the way ✝️, the truth 📖, and the life 🌟, no one comes to the Father except through me 🙌 — guide your family with love ❤️, prayer 🙏, and kindness 🌿</p>
+    </marquee>
+
+
+    <script>
+if (sessionStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
+</script>
+
+<div class="logout-top">
+  <button class="logout-btn" onclick="logout()">Logout 🚪</button>
+</div>
+
+
+<script>
+function logout(){
+    sessionStorage.clear();
+    window.location.href = "index.html";
+}
+</script>
+
+
+
+  </main>
+
+  <footer>
+    @aloysius254
+  </footer>
+
+</body>
+</html>
