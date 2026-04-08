@@ -8,12 +8,23 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: #333;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
 }
+
+/* dark overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
+}
+
+nav, .hero, .home-cards, footer { position: relative; z-index: 1; }
 
 /* ── Nav ── */
 nav {
@@ -52,7 +63,7 @@ nav a:hover { color: #f0e68c; }
 }
 
 .hero-content {
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.5);
   backdrop-filter: blur(6px);
   border-radius: 20px;
   padding: 50px 60px;
@@ -65,6 +76,7 @@ nav a:hover { color: #f0e68c; }
   color: #f0e68c;
   margin-bottom: 12px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  letter-spacing: 2px;
 }
 
 .hero-content p {
@@ -103,102 +115,41 @@ nav a:hover { color: #f0e68c; }
 }
 
 .card {
-  background: rgba(255,255,255,0.88);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 16px;
   padding: 30px 24px;
   text-align: center;
   flex: 1 1 220px;
   max-width: 260px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   transition: transform 0.3s;
+  color: #fff;
 }
 
 .card:hover { transform: translateY(-6px); }
 
 .card span { font-size: 40px; }
-.card h3 { color: #2ca8a8; margin: 10px 0 6px; font-size: 20px; }
-.card p  { color: #555; font-size: 15px; }
-
-/* ── Login Container ── */
-.login-container {
-  background: rgba(255,255,255,0.9);
-  padding: 44px 50px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 420px;
-  width: 90%;
-  margin-top: 60px;
-}
-
-.login-icon { font-size: 48px; margin-bottom: 8px; }
-
-h2 {
-  color: #2ca8a8;
-  margin-bottom: 6px;
-  text-align: center;
-  font-size: 26px;
-}
-
-.login-sub {
-  color: #777;
-  font-size: 14px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 13px 15px;
-  margin: 8px 0;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  outline: none;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border: 2px solid #2ca8a8;
-  box-shadow: 0 0 8px rgba(44,168,168,0.4);
-}
-
-button {
-  width: 100%;
-  padding: 13px;
-  margin-top: 16px;
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(135deg, #2ca8a8, #1a7a7a);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-button:hover {
-  background: linear-gradient(135deg, #1a7a7a, #0f5555);
-  transform: scale(1.02);
-}
-
-#message {
-  margin-top: 14px;
-  font-weight: bold;
-  color: #d9534f;
-  text-align: center;
-}
+.card h3 { color: #f0e68c; margin: 10px 0 6px; font-size: 20px; }
+.card p  { color: #ddd; font-size: 15px; }
 
 /* ── Footer ── */
 footer {
   width: 100%;
   text-align: center;
   font-size: 12px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.4);
   padding: 20px 0;
   margin-top: auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 36px 24px;
+  }
+
+  .hero-content h1 { font-size: 28px; }
+  .hero-content p  { font-size: 16px; }
 }
