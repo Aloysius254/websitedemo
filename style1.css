@@ -231,17 +231,23 @@ header h1 {
   text-align: center;
 }
 
-.audio-label {
-  font-size: 18px;
-  color: #f0e68c;
-  margin-bottom: 16px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+.audio-toggle {
+  background: linear-gradient(135deg, #f0e68c, #d4a017);
+  color: #222;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
 }
 
-audio {
-  width: 100%;
-  border-radius: 30px;
-  outline: none;
+.audio-toggle:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 
 /* ── Marquee ── */

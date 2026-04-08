@@ -67,12 +67,25 @@
 
     <!-- Divine Mercy Audio -->
     <div class="audio-section">
-      <p class="audio-label">🎵 Click below to listen to the Divine Mercy Chaplet</p>
-      <audio controls>
+      <button class="audio-toggle" onclick="toggleAudio()">🎵 Click here to listen to the Divine Mercy Chaplet</button>
+      <audio id="divineAudio" controls style="display:none; width:100%; margin-top:16px; border-radius:30px;">
         <source src="audio/Divine Mercy Chaplet english.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
     </div>
+
+    <script>
+      function toggleAudio() {
+        const audio = document.getElementById('divineAudio');
+        if (audio.style.display === 'none') {
+          audio.style.display = 'block';
+          audio.play();
+        } else {
+          audio.style.display = 'none';
+          audio.pause();
+        }
+      }
+    </script>
 
     <div class="marquee-wrapper">
       <p class="marquee-text">Jesus said: I am the way ✝️, the truth 📖, and the life 🌟 — no one comes to the Father except through me 🙌 — guide your family with love ❤️, prayer 🙏, and kindness 🌿</p>
