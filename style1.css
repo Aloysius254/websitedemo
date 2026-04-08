@@ -257,6 +257,24 @@ footer {
 
 footer p { margin: 0; }
 
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.6);
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover { color: #f0e68c; transform: scale(1.2); }
+.footer-social .fa-facebook:hover { color: #1877f2; }
+.footer-social .fa-whatsapp:hover { color: #25d366; }
+.footer-social .fa-envelope:hover { color: #f0e68c; }
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .overlay-text { display: none; }
