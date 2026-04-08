@@ -8,15 +8,9 @@
 </head>
 <body>
 
-  <div class="logout-top">
-    <button class="logout-btn" onclick="logout()">Logout 🚪</button>
-  </div>
-
   <nav>
     <a href="index.html">Home</a>
-    <a href="login.html">Login</a>
     <a href="family.html">Family</a>
-    <button class="logout-btn nav-logout" onclick="logout()">Logout 🚪</button>
   </nav>
 
   <div class="overlay-text left">
@@ -39,7 +33,6 @@
   <main>
     <p class="motto">🙏 Family that prays together stays together ❤️</p>
 
-    <!-- Main gallery -->
     <section class="gallery">
       <div class="gallery-item portrait">
         <img src="images/dad.jpg" alt="Dad">
@@ -63,8 +56,6 @@
       </div>
     </section>
 
-    <!-- Add more pictures here — just copy a .gallery-item div above -->
-
     <p class="prayer">
       Glory be to the Father 🙏<br>
       And to the Son ✝️<br>
@@ -80,16 +71,6 @@
   </main>
 
   <footer>@aloysius254</footer>
-
-  <script>
-    if (sessionStorage.getItem("loggedIn") !== "true") {
-      window.location.href = "login.html";
-    }
-    function logout() {
-      sessionStorage.clear();
-      window.location.href = "index.html";
-    }
-  </script>
 
 </body>
 </html>
