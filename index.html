@@ -3,57 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Command Access - Kinoti Family</title>
+  <title>Kinoti Family</title>
   <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
-    <a href="index.html">Home</a> |
-    <a href="login.html">Login</a> |
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
     <a href="family.html">Family</a>
   </nav>
 
-  <!-- Command container -->
-  <div class="login-container">
-    <h2>Enter Command to Continue</h2>
-
-    <form onsubmit="checkCommand(event)">
-      <input
-        type="text"
-        id="command"
-        placeholder="Enter command"
-        required
-        autofocus
-      >
-      <button type="submit">Submit</button>
-    </form>
-
-    <p id="message"></p>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Kinoti Family 🕊️</h1>
+      <p>Faith 🙏 · Love ❤️ · Prayer ✝️</p>
+      <a href="login.html" class="hero-btn">Enter Family Page</a>
+    </div>
   </div>
 
-  <script>
-    // Simple hash check — avoids plain-text credential in source
-    async function hashString(str) {
-      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
-      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
-    }
+  <section class="home-cards">
+    <div class="card">
+      <span>🙏</span>
+      <h3>Faith</h3>
+      <p>Rooted in the Word, guided by the Spirit.</p>
+    </div>
+    <div class="card">
+      <span>❤️</span>
+      <h3>Love</h3>
+      <p>A family bound together by unconditional love.</p>
+    </div>
+    <div class="card">
+      <span>✝️</span>
+      <h3>Prayer</h3>
+      <p>A family that prays together stays together.</p>
+    </div>
+  </section>
 
-    async function checkCommand(event) {
-      event.preventDefault();
-      const command = document.getElementById("command").value;
-      const hashed = await hashString(command);
-      // SHA-256 of "ACCESS123"
-      const expected = "b27dd61b3657cb1526ac291d6509283da9149c1ce8b908b5bde3172fbf78272b";
-      if (hashed === expected) {
-        sessionStorage.setItem("commandPassed", "true");
-        window.location.href = "login.html";
-      } else {
-        document.getElementById("message").innerText = "Invalid command!";
-      }
-    }
-  </script>
+  <footer>@aloysius254</footer>
 
 </body>
 </html>

@@ -9,28 +9,26 @@
 <body>
 
   <nav>
-    <a href="index.html">Home</a> |
-    <a href="login.html">Login</a> |
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
     <a href="family.html">Family</a>
   </nav>
 
   <div class="login-container">
-    <h2>Login</h2>
+    <div class="login-icon">🕊️</div>
+    <h2>Family Login</h2>
+    <p class="login-sub">Enter your credentials to access the family page</p>
 
     <form onsubmit="login(event)">
-      <input type="text" id="username" placeholder="Username" required>
+      <input type="text" id="username" placeholder="Username" required autofocus>
       <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
+      <button type="submit">Login ✝️</button>
     </form>
 
     <p id="message"></p>
   </div>
 
   <script>
-    if (sessionStorage.getItem("commandPassed") !== "true") {
-      window.location.href = "index.html";
-    }
-
     async function hashString(str) {
       const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
       return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
@@ -42,7 +40,6 @@
       const pass = document.getElementById("password").value;
       const userHash = await hashString(user);
       const passHash = await hashString(pass);
-      // SHA-256 of "Aloysius" and "1234"
       const expectedUser = "c01fb9606f7f637487ad33cf2f455b81e96568666ff562ed340379b6e88f94b0";
       const expectedPass = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
       if (userHash === expectedUser && passHash === expectedPass) {
