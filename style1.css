@@ -221,6 +221,29 @@ header h1 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
+/* ── Audio Section ── */
+.audio-section {
+  margin: 10px auto 30px;
+  max-width: 500px;
+  background: rgba(0,0,0,0.45);
+  border-radius: 16px;
+  padding: 24px 30px;
+  text-align: center;
+}
+
+.audio-label {
+  font-size: 18px;
+  color: #f0e68c;
+  margin-bottom: 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+audio {
+  width: 100%;
+  border-radius: 30px;
+  outline: none;
+}
+
 /* ── Marquee ── */
 .marquee-wrapper {
   overflow: hidden;
