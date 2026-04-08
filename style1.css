@@ -124,7 +124,6 @@ header h1 {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  background: #111;
 }
 
 .gallery-item.featured {
@@ -141,11 +140,16 @@ header h1 {
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* portrait images — show full photo, no crop */
+/* portrait images — full width, natural height, no black bars */
+.gallery-item.portrait {
+  background: none;
+}
+
 .gallery-item.portrait img {
   height: auto;
-  max-height: 480px;
-  object-fit: contain;
+  max-height: none;
+  object-fit: cover;
+  object-position: top;
 }
 
 .gallery-item.featured img {
