@@ -133,14 +133,16 @@ header h1 {
 
 .gallery-item img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  background: #000;
   display: block;
   filter: brightness(88%);
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.gallery-item.featured img { height: 340px; }
+.gallery-item.featured img { max-height: 520px; }
 
 .gallery-item:hover img {
   transform: scale(1.06);
