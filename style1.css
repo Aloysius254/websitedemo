@@ -108,9 +108,23 @@ nav a {
 }
 
 /* Marquee */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
 .marquee-text {
-  text-align: left;
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 20s linear infinite;
   font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
 }
 
 /* Top Corner Logout Container */

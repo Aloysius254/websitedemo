@@ -12,7 +12,7 @@
   <nav>
     <a href="index.html">Home</a> |
     <a href="login.html">Login</a> |
-    <a href="dollar.html">Family</a>
+    <a href="family.html">Family</a>
   </nav>
 
   <!-- Command container -->
@@ -34,12 +34,19 @@
   </div>
 
   <script>
-    function checkCommand(event) {
-      event.preventDefault(); // stops page reload
+    // Simple hash check — avoids plain-text credential in source
+    async function hashString(str) {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
 
+    async function checkCommand(event) {
+      event.preventDefault();
       const command = document.getElementById("command").value;
-
-      if (command === "ACCESS123") {
+      const hashed = await hashString(command);
+      // SHA-256 of "ACCESS123"
+      const expected = "b27dd61b3657cb1526ac291d6509283da9149c1ce8b908b5bde3172fbf78272b";
+      if (hashed === expected) {
         sessionStorage.setItem("commandPassed", "true");
         window.location.href = "login.html";
       } else {
