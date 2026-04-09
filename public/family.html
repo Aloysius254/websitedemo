@@ -10,8 +10,9 @@
 <body>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="family.html">Family</a>
+    <a href="/">Home</a>
+    <a href="/family">Family</a>
+    <a href="/logout" style="color:#f08080;">Logout</a>
   </nav>
 
   <div class="overlay-text left">
@@ -69,6 +70,27 @@
     <div class="marquee-wrapper">
       <p class="marquee-text">Jesus said: I am the way ✝️, the truth 📖, and the life 🌟 — no one comes to the Father except through me 🙌 — guide your family with love ❤️, prayer 🙏, and kindness 🌿</p>
     </div>
+
+    <!-- Prayer Request Wall -->
+    <section class="board-section">
+      <h2>🙏 Prayer Requests</h2>
+      <form id="prayerForm">
+        <textarea id="prayerMsg" placeholder="Share your prayer request..." rows="3" required></textarea>
+        <button type="submit">Submit Prayer Request</button>
+      </form>
+      <div id="prayerList" class="board-list"></div>
+    </section>
+
+    <!-- Family Message Board -->
+    <section class="board-section">
+      <h2>💬 Family Message Board</h2>
+      <form id="messageForm">
+        <textarea id="messageText" placeholder="Leave a message for the family..." rows="3" required></textarea>
+        <button type="submit">Post Message</button>
+      </form>
+      <div id="messageList" class="board-list"></div>
+    </section>
+
   </main>
 
   <footer>
@@ -82,5 +104,51 @@
     <p>✝️ Powered by God's Favour</p>
   </footer>
 
+  <script>
+    // Load prayers
+    async function loadPrayers() {
+      const res = await fetch('/api/prayers');
+      const prayers = await res.json();
+      document.getElementById('prayerList').innerHTML = prayers.map(p => `
+        <div class="board-item">
+          <strong>${p.author}</strong>
+          <p>${p.message}</p>
+          <small>${new Date(p.createdAt).toLocaleDateString()}</small>
+        </div>`).join('');
+    }
+
+    // Load messages
+    async function loadMessages() {
+      const res = await fetch('/api/messages');
+      const messages = await res.json();
+      document.getElementById('messageList').innerHTML = messages.map(m => `
+        <div class="board-item">
+          <strong>${m.author}</strong>
+          <p>${m.text}</p>
+          <small>${new Date(m.createdAt).toLocaleDateString()}</small>
+        </div>`).join('');
+    }
+
+    // Submit prayer
+    document.getElementById('prayerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = document.getElementById('prayerMsg').value;
+      await fetch('/api/prayers', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ message }) });
+      document.getElementById('prayerMsg').value = '';
+      loadPrayers();
+    });
+
+    // Submit message
+    document.getElementById('messageForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = document.getElementById('messageText').value;
+      await fetch('/api/messages', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ text }) });
+      document.getElementById('messageText').value = '';
+      loadMessages();
+    });
+
+    loadPrayers();
+    loadMessages();
+  </script>
 </body>
 </html>
